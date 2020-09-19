@@ -1,0 +1,26 @@
+zuul:
+  prefix: /apigetway
+  routes:
+    resource:
+    ORDER-SERVICE:
+      path: /order/info/**
+      serviceId: order-service
+    SHOPPING-CART-SERVICE:
+      path: /cart/**
+      serviceId: shopping-cart-service
+  host:
+    socket-timeout-millis: 50000
+
+server:
+ port: 8093
+spring:
+  application:
+   name: zuul-service
+
+security:
+ basic:
+  enable: false
+management:
+  security:
+    enabled: false
+
